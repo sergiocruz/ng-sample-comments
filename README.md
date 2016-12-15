@@ -1,4 +1,8 @@
-# SimpleComments
+# Sample Comments with Angular
+
+This app was written to demonstrate how to make components communicate in Angular. In this code we pass data from a parent to a child component. Then we also pass data from a child component back its parent.
+
+## Scaffold
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
 
