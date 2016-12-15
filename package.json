@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
+  "homepage": "https://sergiocruz.github.io/ng-sample-comments/",
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
