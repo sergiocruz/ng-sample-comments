@@ -1,0 +1,16 @@
+<div class="comment">
+  <div class="comment-content">
+    <h3>{{ comment.author }}</h3>
+    <p class="comment-body" [class.comment-body--flagged]="isReported">
+      {{
+        !isReported
+          ? comment.body
+          : "Content flagged"
+      }}
+    </p>
+  </div>
+  <div class="comment-actions">
+    <button class="btn" (click)="deleteComment()">Delete</button>
+    <button class="btn" (click)="toggleReport()">Report</button>
+  </div>
+</div>

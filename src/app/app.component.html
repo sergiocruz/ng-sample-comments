@@ -1,3 +1,10 @@
-<h1>
-  {{title}}
-</h1>
+<div class="comments">
+  <h1>Comments</h1>
+
+  <div class="comments-list">
+    <comment
+      *ngFor="let comment of comments"
+      [comment]="comment"
+      (onDelete)="onCommentDelete($event)"></comment>
+  </div>
+</div>

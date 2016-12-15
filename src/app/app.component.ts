@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommentInterface, comments } from './comment-data';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  comments: CommentInterface[] = [];
+
+  ngOnInit() {
+    this.comments = comments;
+  }
+
+  onCommentDelete(comment) {
+    const index = this.comments.indexOf(comment);
+    this.comments.splice(index, 1);
+  }
 }
