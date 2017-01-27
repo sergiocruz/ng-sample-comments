@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { CommentInterface, comments } from './comment-data';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { CommentInterface } from './comment-data';
+import { AppState } from './store';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +11,11 @@ import { CommentInterface, comments } from './comment-data';
 })
 export class AppComponent {
 
-  comments: CommentInterface[] = [];
+  comments: Observable<CommentInterface[]>;
+
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.comments = comments;
-  }
-
-  onCommentDelete(comment) {
-    const index = this.comments.indexOf(comment);
-    this.comments.splice(index, 1);
+    this.comments = this.store.select('comments') as Observable<CommentInterface[]>;
   }
 }

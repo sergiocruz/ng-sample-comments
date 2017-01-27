@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { CommentInterface } from '../comment-data';
+import { AppState, DeleteAction } from '../store';
 
 @Component({
   selector: 'comment',
@@ -9,14 +11,15 @@ import { CommentInterface } from '../comment-data';
 export class CommentComponent {
 
   @Input() private comment: CommentInterface;
-  @Output() private onDelete = new EventEmitter();
   private isReported: boolean = false;
+
+  constructor(private store: Store<AppState>) {}
 
   toggleReport() {
     this.isReported = !this.isReported;
   }
 
   deleteComment() {
-    this.onDelete.emit(this.comment);
+    this.store.dispatch(new DeleteAction(this.comment));
   }
 }
