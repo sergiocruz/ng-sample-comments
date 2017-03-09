@@ -14,8 +14,7 @@ export class AppComponent {
     this.comments = comments;
   }
 
-  onCommentDelete(comment) {
-    const index = this.comments.indexOf(comment);
-    this.comments.splice(index, 1);
+  onCommentDelete(deletedComment) {
+    this.comments = this.comments.filter(comment => comment !== deletedComment);
   }
 }
